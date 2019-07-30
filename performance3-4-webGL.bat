@@ -13,6 +13,11 @@ choice /c CS /d s /t %waitMins%
 set id=%errorlevel%
 
 echo "starting max..."
+E:
+cd \max\Observance_004_max
+git checkout master
+echo branch:
+git rev-parse --abbrev-ref HEAD
 Start "" "C:\Program Files\Cycling '74\Max 7\Max.exe" E:\max\Observance_004_max\Observance_004_max.maxproj
 
 set /a waitMins=30
@@ -62,6 +67,11 @@ exit /b 0
 C:\Display\display.exe /device 1 /rotate 90
 timeout 5
 echo "start touchdesigner observance004"
+E:
+cd \touchdesigner\observance_004
+git checkout performance
+echo branch:
+git rev-parse --abbrev-ref HEAD
 Start "" "C:\Program Files\Derivative\TouchDesigner099\bin\touchdesigner099.exe" E:\touchdesigner\observance_004\observance_004.toe
 
 TIMEOUT 60
